@@ -60,12 +60,38 @@ s.waitForBoot{
 			s.sendMsg(\s_new, \timerobj, 6000+ix, 0, 301, \ibs, 50, \aobs, 100+ix, \kobs, 100+ix, \st, st, \end, end);
 		}, "/timer");
 
+
+
+		OSCdef( \eventnorm, {
+			arg msg;
+			var dialnum = msg[1].asInteger;
+			var eventnum = msg[2].asInteger;
+			var val=msg[3].asFloat;
+			//msg.postln;
+		}, "/eventnorm");
+
+		OSCdef( \eventon, {
+			arg msg;
+			var dialnum = msg[1].asInteger;
+			var eventnum = msg[2].asInteger;
+			msg.postln;
+		}, "/eventon");
+
+		OSCdef( \eventoff, {
+			arg msg;
+			var dialnum = msg[1].asInteger;
+			var eventnum = msg[2].asInteger;
+			msg.postln;
+		}, "/eventoff");
+
 		//Synths
 		s.sendMsg(\s_new, \phasorclock, 5000, 0, 300, \abus, 50, \kbus, 0);
 	}//end fork
 }//end s.waitForBoot
 
 )
+//COMBINE CODE WITH LIVE PROCESSING
+//USE EVENTS TO TURN ON GREYHOLE
 
 n = NetAddr("127.0.0.1", 12321);
 //Mak a dial
