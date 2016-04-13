@@ -94,7 +94,7 @@ s.waitForBoot{
 //USE EVENTS TO TURN ON GREYHOLE
 
 n = NetAddr("127.0.0.1", 12321);
-//Mak a dial
+//Make a dial
 n.sendMsg(\mkdial, 0, 0, 0.0, 1.0, "sunshine", 2); //idx, clknum, radiusnorm1, radiusnorm2, clr, wt
 //Make a timer
 n.sendMsg(\mktimetrig, 0, 0, 0.667, 2.0, 5.0, "mint", 4); //idx, clknum, radiusnorm, stclock , endclock, clr, wt
